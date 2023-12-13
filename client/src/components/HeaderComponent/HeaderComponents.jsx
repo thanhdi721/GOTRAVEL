@@ -7,17 +7,17 @@ const HeaderComponents = () => {
     navigate("/login");
   };
   return (
-    <header class="header navbar-area">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-12">
-            <div class="nav-inner">
-              <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand" href="index.html">
+    <header className="header navbar-area">
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-12">
+            <div className="nav-inner">
+              <nav className="navbar navbar-expand-lg">
+                <a className="navbar-brand" href="index.html">
                   <img src={logo} alt="Logo" />
                 </a>
                 <button
-                  class="navbar-toggler mobile-menu-btn"
+                  className="navbar-toggler mobile-menu-btn"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#navbarSupportedContent"
@@ -25,64 +25,64 @@ const HeaderComponents = () => {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                 >
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
-                  <span class="toggler-icon"></span>
+                  <span className="toggler-icon"></span>
+                  <span className="toggler-icon"></span>
+                  <span className="toggler-icon"></span>
                 </button>
                 <div
-                  class="collapse navbar-collapse sub-menu-bar"
+                  className="collapse navbar-collapse sub-menu-bar"
                   id="navbarSupportedContent"
                 >
-                  <ul id="nav" class="navbar-nav ms-auto">
-                    <li class="nav-item">
+                  <ul id="nav" className="navbar-nav ms-auto">
+                    <li className="nav-item">
                       <a
                         href="#home"
-                        class="page-scroll active"
+                        className="page-scroll active"
                         aria-label="Toggle navigation"
                       >
                         Home
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         href="#features"
-                        class="page-scroll"
+                        className="page-scroll"
                         aria-label="Toggle navigation"
                       >
                         Features
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         aria-label="Toggle navigation"
                         href="#overview"
-                        class="page-scroll"
+                        className="page-scroll"
                       >
                         Overview
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         href="#pricing"
-                        class="page-scroll"
+                        className="page-scroll"
                         aria-label="Toggle navigation"
                       >
                         Pricing
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         href="#Team"
-                        class="page-scroll"
+                        className="page-scroll"
                         aria-label="Toggle navigation"
                       >
                         Team
                       </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         href="#Blog"
-                        class="page-scroll"
+                        className="page-scroll"
                         data-bs-toggle="collapse"
                         data-bs-target="#submenu-1-4"
                         aria-controls="navbarSupportedContent"
@@ -91,22 +91,22 @@ const HeaderComponents = () => {
                       >
                         Blog
                       </a>
-                      <ul class="sub-menu collapse" id="submenu-1-4">
-                        <li class="nav-item">
+                      <ul className="sub-menu collapse" id="submenu-1-4">
+                        <li className="nav-item">
                           <div>Blog Grid Sidebar</div>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                           <div>Blog Single</div>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                           <div>Blog Single Sibebar</div>
                         </li>
                       </ul>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                       <a
                         href="#Contact"
-                        class="page-scroll"
+                        className="page-scroll"
                         aria-label="Toggle navigation"
                       >
                         Contact
@@ -114,8 +114,8 @@ const HeaderComponents = () => {
                     </li>
                   </ul>
                 </div>
-                <div class="button add-list-button">
-                  <div class="btn" onClick={handleNavigateLogin}>
+                <div className="button add-list-button">
+                  <div className="btn" onClick={handleNavigateLogin}>
                     Tài Khoản
                   </div>
                 </div>

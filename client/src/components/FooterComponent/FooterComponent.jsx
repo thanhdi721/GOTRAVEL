@@ -1,5 +1,5 @@
 import React from "react";
-
+import logo from "../../assets/images/logo_black.png";
 const FooterComponent = () => {
   return (
     <>
@@ -11,7 +11,7 @@ const FooterComponent = () => {
                 <div class="single-footer f-about">
                   <div class="logo">
                     <a href="index.html">
-                      <img src="assets/images/logo/white-logo.svg" alt="#" />
+                      <img src={logo} alt="#" />
                     </a>
                   </div>
                   <p>

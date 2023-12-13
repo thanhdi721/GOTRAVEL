@@ -7,7 +7,6 @@ import {
   WrapperContent,
   WrapperContentH2,
   WrapperContentH3,
-  WrapperContentPre,
   WrapperIcon,
   WrapperIconI,
   WrapperLogin,
@@ -20,7 +19,7 @@ import {
   WrapperSignUpA,
   WrapperSignUpP,
 } from "./style";
-import Logo from "../../assets/images/logo_white.png";
+
 import moment from "moment";
 import "./app.css";
 import {
@@ -54,8 +53,8 @@ const LoginPage = () => {
     // Cập nhật nền ban đầu
     updateBackground();
 
-    // Cập nhật nền mỗi 1 phút
-    const intervalId = setInterval(updateBackground, 60000);
+    // Cập nhật nền mỗi 10s
+    const intervalId = setInterval(updateBackground, 10000);
 
     // Xóa interval khi component unmount
     return () => clearInterval(intervalId);
@@ -65,6 +64,25 @@ const LoginPage = () => {
     <>
       <WrapperBackground className={backgroundStyle}></WrapperBackground>
       <WrapperSection>
+        <WrapperContent>
+          <WrapperContentH2> Welcome!</WrapperContentH2>
+          <WrapperContentH3> To Our Nem Website </WrapperContentH3>
+
+          <WrapperIcon>
+            <WrapperIconI>
+              <FacebookOutlined />
+            </WrapperIconI>
+            <WrapperIconI>
+              <InstagramOutlined />
+            </WrapperIconI>
+            <WrapperIconI>
+              <TwitterOutlined />
+            </WrapperIconI>
+            <WrapperIconI>
+              <GithubOutlined />
+            </WrapperIconI>
+          </WrapperIcon>
+        </WrapperContent>
         <WrapperLogin>
           <WrapperLoginH2> Register </WrapperLoginH2>
           <WrapperLoginInput>
@@ -83,7 +101,12 @@ const LoginPage = () => {
             <WrapperCheckA> Forgot Password?</WrapperCheckA>
           </WrapperCheck>
           <WrapperButton>
-            <button> Login </button>
+            <button
+              className="btn"
+              style={{ border: "1px solid gray", color: "#000" }}
+            >
+              Register
+            </button>
           </WrapperButton>
           <WrapperSignUp>
             <WrapperSignUpP>Do you already have an account?</WrapperSignUpP>
@@ -95,31 +118,6 @@ const LoginPage = () => {
             </WrapperSignUpA>
           </WrapperSignUp>
         </WrapperLogin>
-        <WrapperContent>
-          <div>
-            <img src={Logo} alt="Logo" style={{ width: "150px" }} />
-          </div>
-          <WrapperContentH2> Welcome!</WrapperContentH2>
-          <WrapperContentH3> To Our Nem Website </WrapperContentH3>
-          <WrapperContentPre>
-            Lorem ipsum, dolor sit amen consenter adipisicing elit.
-            Beatae,asperiores
-          </WrapperContentPre>
-          <WrapperIcon>
-            <WrapperIconI>
-              <FacebookOutlined />
-            </WrapperIconI>
-            <WrapperIconI>
-              <InstagramOutlined />
-            </WrapperIconI>
-            <WrapperIconI>
-              <TwitterOutlined />
-            </WrapperIconI>
-            <WrapperIconI>
-              <GithubOutlined />
-            </WrapperIconI>
-          </WrapperIcon>
-        </WrapperContent>
       </WrapperSection>
     </>
   );

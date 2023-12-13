@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   WrapperBackground,
   WrapperButton,
@@ -26,27 +26,50 @@ import {
   TwitterOutlined,
   InstagramOutlined,
 } from "@ant-design/icons";
+import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+
+import "./app.css";
 const LoginPage = () => {
+  const [backgroundStyle, setBackgroundStyle] = useState("background1");
+
+  useEffect(() => {
+    const updateBackground = () => {
+      const currentHour = moment().hour();
+
+      // Kiểm tra giờ hiện tại và áp dụng kiểu CSS tương ứng
+      if (currentHour >= 6 && currentHour < 18) {
+        setBackgroundStyle("background1");
+      } else {
+        setBackgroundStyle("background2");
+      }
+    };
+
+    // Cập nhật nền ban đầu
+    updateBackground();
+
+    // Cập nhật nền mỗi 10s
+    const intervalId = setInterval(updateBackground, 10000);
+
+    // Xóa interval khi component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   const navigate = useNavigate();
   const handleNavigateLogin = () => {
     navigate("/register");
   };
+  const handleNavigateHome = () => {
+    navigate("/");
+  };
   return (
     <>
-      <WrapperBackground></WrapperBackground>
+      <WrapperBackground className={backgroundStyle}></WrapperBackground>
       <WrapperSection>
         <WrapperContent>
-          <div>
-            <img src={logo} alt="" style={{ width: "150px" }} />
-          </div>
           <WrapperContentH2> Welcome!</WrapperContentH2>
           <WrapperContentH3> To Our Nem Website </WrapperContentH3>
-          <WrapperContentPre>
-            Lorem ipsum, dolor sit amen consenter adipisicing elit.
-            Beatae,asperiores
-          </WrapperContentPre>
+
           <WrapperIcon>
             <WrapperIconI>
               <FacebookOutlined />
@@ -80,7 +103,13 @@ const LoginPage = () => {
             <WrapperCheckA> Forgot Password?</WrapperCheckA>
           </WrapperCheck>
           <WrapperButton>
-            <button> Login </button>
+            <button
+              className="btn"
+              style={{ border: "1px solid gray", color: "#000" }}
+              onClick={handleNavigateHome}
+            >
+              Login
+            </button>
           </WrapperButton>
           <WrapperSignUp>
             <WrapperSignUpP> Don't have an account?</WrapperSignUpP>
