@@ -1,75 +1,34 @@
-import {} from "antd";
-import imagesCard from "../../assets/images/product1.png";
 import React from "react";
-import { WrapperCardStyle, WrapperCardStyleBorder } from "./style";
+import imgProduct from "../../assets/images/product-2-720x480.jpg";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/esm/Col";
+import Row from "react-bootstrap/esm/Row";
 
 const FromComponents = () => {
   return (
-    <div className="card-group" style={{ paddingLeft: "20px" }}>
-      <WrapperCardStyleBorder className="card">
-        <WrapperCardStyle>
-          <img
-            className="card-img-top"
-            src={imagesCard}
-            alt="Job posting"
-            style={{ width: "50px", borderRadius: "6px" }}
-          />
-          <h5 className="card-title">Công ty TNHH 1 thành viên PTD</h5>
-        </WrapperCardStyle>
-
-        <div className="card-body">
-          <p className="card-text">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </p>
-          <p className="card-text">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </p>
-        </div>
-      </WrapperCardStyleBorder>
-      {/* <div className="card" style={{ marginTop: "20px" }}>
-        <div style={{ display: "flex", gap: "15px" }}>
-          <img
-            className="card-img-top"
-            src={imagesCard}
-            alt="Job posting"
-            style={{ width: "50px" }}
-          />
-          <h5 className="card-title">Card title</h5>
-        </div>
-
-        <div className="card-body">
-          <p className="card-text">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </p>
-          <p className="card-text">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </p>
-        </div>
-      </div>
-      <div className="card" style={{ marginTop: "20px" }}>
-        <div style={{ display: "flex", gap: "15px" }}>
-          <img
-            className="card-img-top"
-            src={imagesCard}
-            alt="Job posting"
-            style={{ width: "50px" }}
-          />
-          <h5 className="card-title">Card title</h5>
-        </div>
-
-        <div className="card-body">
-          <p className="card-text">
-            This card has supporting text below as a natural lead-in to
-            additional content.
-          </p>
-          <p className="card-text">
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </p>
-        </div>
-      </div> */}
-    </div>
+    <>
+      <Row style={{ marginRight: "18px" }}>
+        <Col sm>
+          <Card style={{ width: "18rem", marginBottom: "16px" }}>
+            <Card.Img variant="top" src={imgProduct} />
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Card.Text style={{ color: "red" }}>$300-$400</Card.Text>
+              <p
+                className="text-center"
+                style={{ cursor: "pointer", marginTop: "6px" }}
+              >
+                See More
+              </p>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </>
   );
 };
 
