@@ -3,65 +3,65 @@ import logo from "../../assets/images/logo_black.png";
 const FooterComponent = () => {
   return (
     <>
-      <footer class="footer">
-        <div class="footer-top">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-4 col-md-4 col-12">
-                <div class="single-footer f-about">
-                  <div class="logo">
+      <footer className="footer">
+        <div className="footer-top">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-4 col-md-4 col-12">
+                <div className="single-footer f-about">
+                  <div className="logo">
                     <a href="index.html">
                       <img src={logo} alt="#" />
                     </a>
                   </div>
-                  <p>
+                  <span>
                     Making the world a better place through constructing elegant
                     hierarchies.
-                  </p>
-                  <ul class="social">
+                  </span>
+                  <ul className="social">
                     <li>
                       <div>
-                        <i class="lni lni-facebook-filled"></i>
+                        <i className="lni lni-facebook-filled"></i>
                       </div>
                     </li>
                     <li>
                       <div>
-                        <i class="lni lni-twitter-original"></i>
+                        <i className="lni lni-twitter-original"></i>
                       </div>
                     </li>
                     <li>
                       <div>
-                        <i class="lni lni-instagram"></i>
+                        <i className="lni lni-instagram"></i>
                       </div>
                     </li>
                     <li>
                       <div>
-                        <i class="lni lni-linkedin-original"></i>
+                        <i className="lni lni-linkedin-original"></i>
                       </div>
                     </li>
                     <li>
                       <div>
-                        <i class="lni lni-youtube"></i>
+                        <i className="lni lni-youtube"></i>
                       </div>
                     </li>
                     <li>
                       <div>
-                        <i class="lni lni-pinterest"></i>
+                        <i className="lni lni-pinterest"></i>
                       </div>
                     </li>
                   </ul>
-                  <p class="copyright-text">
+                  <span className="copyright-text">
                     Designed and Developed by
                     <div rel="nofollow" target="_blank">
                       UIdeck
                     </div>
-                  </p>
+                  </span>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-8 col-12">
-                <div class="row">
-                  <div class="col-lg-3 col-md-6 col-12">
-                    <div class="single-footer f-link">
+              <div className="col-lg-8 col-md-8 col-12">
+                <div className="row">
+                  <div className="col-lg-3 col-md-6 col-12">
+                    <div className="single-footer f-link">
                       <h3>Solutions</h3>
                       <ul>
                         <li>
@@ -71,7 +71,7 @@ const FooterComponent = () => {
                           <div>Analytics</div>
                         </li>
                         <li>
-                          <dic>Commerce</dic>
+                          <div>Commerce</div>
                         </li>
                         <li>
                           <div>Insights</div>
@@ -82,8 +82,8 @@ const FooterComponent = () => {
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-12">
-                    <div class="single-footer f-link">
+                  <div className="col-lg-3 col-md-6 col-12">
+                    <div className="single-footer f-link">
                       <h3>Support</h3>
                       <ul>
                         <li>
@@ -104,8 +104,8 @@ const FooterComponent = () => {
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-12">
-                    <div class="single-footer f-link">
+                  <div className="col-lg-3 col-md-6 col-12">
+                    <div className="single-footer f-link">
                       <h3>Company</h3>
                       <ul>
                         <li>
@@ -126,8 +126,8 @@ const FooterComponent = () => {
                       </ul>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-12">
-                    <div class="single-footer f-link">
+                  <div className="col-lg-3 col-md-6 col-12">
+                    <div className="single-footer f-link">
                       <h3>Legal</h3>
                       <ul>
                         <li>

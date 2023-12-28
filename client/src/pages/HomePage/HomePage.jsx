@@ -13,10 +13,14 @@ const HomePage = () => {
                 <h1 className="wow fadeInLeft" data-wow-delay=".4s">
                   A powerful app for your business.
                 </h1>
-                <p className="wow fadeInLeft" data-wow-delay=".6s">
+                <span
+                  className="wow fadeInLeft"
+                  data-wow-delay=".6s"
+                  style={{ color: "#fff" }}
+                >
                   From open source to pro services, Piqes helps you to build,
                   deploy, test, and monitor apps.
-                </p>
+                </span>
                 <div className="button wow fadeInLeft" data-wow-delay=".8s">
                   <div className="btn">
                     <i className="lni lni-apple"></i> App Store
@@ -44,17 +48,14 @@ const HomePage = () => {
           <div className="row">
             <div className="col-12">
               <div className="section-title">
-                <h3 className="wow zoomIn" data-wow-delay=".2s">
-                  Features
-                </h3>
                 <h2 className="wow fadeInUp" data-wow-delay=".4s">
-                  Your Experience Gets Better And Better Over Time.
+                  Chuyến Đi Là Các Cuộc Trải Nghiệm
                 </h2>
-                <p className="wow fadeInUp" data-wow-delay=".6s">
+                <span className="wow fadeInUp" data-wow-delay=".6s">
                   There are many variations of passages of Lorem Ipsum
                   available, but the majority have suffered alteration in some
                   form.
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -63,60 +64,60 @@ const HomePage = () => {
               <div className="single-feature wow fadeInUp" data-wow-delay=".2s">
                 <i className="fa-solid fa-cloud rotate-diagonal-br"></i>
                 <h3>Push to Deploy</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-12">
               <div className="single-feature wow fadeInUp" data-wow-delay=".4s">
                 <i className="fa-solid fa-lock rotate-diagonal-br"></i>
                 <h3>SSL Certificates</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-12">
               <div className="single-feature wow fadeInUp" data-wow-delay=".6s">
                 <i className="fa-solid fa-rotate-right rotate-diagonal-br"></i>
                 <h3>Simple Queues</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-12">
               <div className="single-feature wow fadeInUp" data-wow-delay=".2s">
                 <i className="fa-solid fa-shield rotate-diagonal-br"></i>
                 <h3>Advanced Security</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-12">
               <div className="single-feature wow fadeInUp" data-wow-delay=".4s">
                 <i className="fa-solid fa-gear rotate-diagonal-br"></i>
                 <h3>Powerful API</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-12">
               <div className="single-feature wow fadeInUp" data-wow-delay=".6s">
                 <i className="fa-solid fa-layer-group  rotate-diagonal-br"></i>
                 <h3>Database Backups</h3>
-                <p>
+                <span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page at its layout.
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -128,10 +129,10 @@ const HomePage = () => {
             <div className="col-lg-10 offset-lg-1 col-md-12 col-12">
               <div className="title">
                 <h2>Trusted by developers from over 80 planets</h2>
-                <p>
+                <span>
                   There are many variations of passages of Lorem Ipsum
                   available, but the majority.
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -149,7 +150,7 @@ const HomePage = () => {
                       </span>
                       %
                     </h3>
-                    <p>satisfaction</p>
+                    <span>satisfaction</span>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-12">
@@ -163,7 +164,7 @@ const HomePage = () => {
                       </span>
                       K
                     </h3>
-                    <p>Happy Users</p>
+                    <span>Happy Users</span>
                   </div>
                 </div>
                 <div className="col-lg-4 col-md-4 col-12">
@@ -177,7 +178,7 @@ const HomePage = () => {
                       </span>
                       k+
                     </h3>
-                    <p>Downloads</p>
+                    <span>Downloads</span>
                   </div>
                 </div>
               </div>
@@ -196,11 +197,11 @@ const HomePage = () => {
                 <h2 className="wow fadeInUp" data-wow-delay=".4s">
                   Pricing Plan
                 </h2>
-                <p className="wow fadeInUp" data-wow-delay=".6s">
+                <span className="wow fadeInUp" data-wow-delay=".6s">
                   There are many variations of passages of Lorem Ipsum
                   available, but the majority have suffered alteration in some
                   form.
-                </p>
+                </span>
               </div>
             </div>
           </div>
@@ -209,7 +210,7 @@ const HomePage = () => {
               <div className="single-table wow fadeInUp" data-wow-delay=".2s">
                 <div className="table-head">
                   <h4 className="title">Hobby</h4>
-                  <p>All the basics for starting a new business</p>
+                  <span>All the basics for starting a new business</span>
                   <div className="price">
                     <h2 className="amount">
                       $12<span className="duration">/mo</span>
@@ -248,7 +249,7 @@ const HomePage = () => {
               <div className="single-table wow fadeInUp" data-wow-delay=".4s">
                 <div className="table-head">
                   <h4 className="title">Freelancer</h4>
-                  <p>All the basics for starting a new business</p>
+                  <span>All the basics for starting a new business</span>
                   <div className="price">
                     <h2 className="amount">
                       $24<span className="duration">/mo</span>
@@ -287,7 +288,7 @@ const HomePage = () => {
               <div className="single-table wow fadeInUp" data-wow-delay=".6s">
                 <div className="table-head">
                   <h4 className="title">Startup</h4>
-                  <p>All the basics for starting a new business</p>
+                  <span>All the basics for starting a new business</span>
                   <div className="price">
                     <h2 className="amount">
                       $32<span className="duration">/mo</span>
@@ -326,7 +327,7 @@ const HomePage = () => {
               <div className="single-table wow fadeInUp" data-wow-delay=".8s">
                 <div className="table-head">
                   <h4 className="title">Enterprise</h4>
-                  <p>All the basics for starting a new business</p>
+                  <span>All the basics for starting a new business</span>
                   <div className="price">
                     <h2 className="amount">
                       $48<span className="duration">/mo</span>
@@ -373,10 +374,10 @@ const HomePage = () => {
                   You are using free Lite <br />
                   Version of Appvilla
                 </h2>
-                <p className="wow fadeInUp" data-wow-delay=".4s">
+                <span className="wow fadeInUp" data-wow-delay=".4s">
                   Please, purchase full version of the template to get all
                   pages, features and commercial license.
-                </p>
+                </span>
                 <div className="button wow fadeInUp" data-wow-delay=".6s">
                   <div className="btn">Purchase Now</div>
                 </div>

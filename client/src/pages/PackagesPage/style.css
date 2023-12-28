@@ -1,0 +1,44 @@
+.bodyFrom {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  text-align: center;
+}
+
+#bookingForm {
+  margin: 20px auto;
+  padding: 20px;
+  width: 70vw;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 0px 10px 0px #aaa;
+}
+@media only screen and (max-width: 767px) {
+  #bookingForm {
+    width: 95vw;
+  }
+}
+#bookingForm input[type="text"],
+#bookingForm input[type="date"],
+#bookingForm select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid gray;
+  border-radius: 4px;
+}
+
+#bookingForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#bookingForm button:hover {
+  background-color: #45a049;
+}
