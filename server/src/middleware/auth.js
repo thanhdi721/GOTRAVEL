@@ -3,27 +3,61 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const authMiddleware = (req, res, next) => {
-    console.log('checkToken', req.headers.token);
-    const token = req.headers.token.split(' ')[1]
+    const tokenHeader = req.headers.token;
+    if (!tokenHeader) {
+        return res.status(401).json({
+        status: "error",
+        message: "Token invalid",
+        });
+    }
+    const token = tokenHeader.split(" ")[1]
     jwt.verify(token, process.env.ACCESS_TOKEN, function(err, user) {
        if (err) {
-        return res.status(404).json({
-            message: 'The authemtication',
-            status: 'ERROR',
-        })
+            return res.status(404).json({
+                message: 'The authentication',
+                status: 'ERROR',
+            })
        }
-    //    const {payload} = user
-       if(user?.isAdmin) {
-            next()
+       if (user?.isAdmin) {
+        next();
        } else {
             return res.status(404).json({
-                message: 'The authemtication',
+                message: 'The authentication',
                 status: 'ERROR',
             })
        }
     })
 }
 
+const authUserMiddleware = (req, res, next) => {
+    const tokenHeader = req.headers.token; 
+    console.log("tokenHeader", tokenHeader);
+    if (!tokenHeader) {
+        return res.status(401).json({
+        status: "error",
+        message: "Token không được cung cấp",
+        });
+    }
+    const token = tokenHeader.split(" ")[1]
+    jwt.verify(token, process.env.ACCESS_TOKEN, function(err, user) {
+       if (err) {
+        console.error("Lỗi xác thực token:", err);
+            return res.status(404).json({
+                message: 'Token validation error',
+                status: 'ERROR',
+            })
+       }
+       if (user?.isAdmin || user?.id === req.params.id) {
+        next();
+       } else {
+            return res.status(404).json({
+                message: 'The authentication',
+                status: 'ERROR',
+            })
+       }
+    })
+}
 module.exports = {
-    authMiddleware
+    authMiddleware,
+    authUserMiddleware
 }

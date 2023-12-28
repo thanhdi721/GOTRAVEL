@@ -1,6 +1,6 @@
 const User = require('../models/UserModel')
 const bcrypt = require('bcrypt');
-const { genneralAccessToken, genneralRefreshToken } = require('./jwtService');
+const { genneralAccessToken, genneralRefreshToken } = require('./JwtService');
 
 const createUser = (newUser) => {
     return new Promise(async (resolve, reject) => {
@@ -106,32 +106,78 @@ const updateUser = (id, data) => {
     })
 }
 
-const deleteUser = (id) => {
-    return new Promise(async (resolve, reject) => {
+const deleteUser = async (id) => {
 
-        try {
-            const checkUser = await User.findOne({ _id: id});
-            if (!checkUser) {
-                resolve({
-                    status: 'OK',
-                    message: 'The user is not defined'
-                })
-            }
-
-            await User.findByIdAndDelete(id)
-            resolve({
-                    status: 'OK',
-                    message: 'Delete user success',
-            })
-
-        } catch (e) {
-            reject(e)
+    try {
+        const user = await User.findOne({
+            _id: id,
+        });
+        if (!user) {
+            return {
+                status: 'error',
+                message: 'The user is not defined',
+            };
         }
-    })
-}
+
+        await User.findByIdAndDelete(id)
+        return {
+            status:'success',
+            message: 'Delete user success',
+        };
+    } catch (error) {
+        return {
+            status: 'error',
+            error: error.message,
+        };
+    }
+};
+
+const getAllUser = async () => {
+    try {
+        const allUser = await User.find()
+        return {
+            status:'success',
+            data: allUser,
+        };
+    } catch (error) {
+        return {
+            status: 'error',
+            error: error.message,
+        };
+    }
+};
+
+const getDetailsUser = async (id) => {
+
+    try {
+        const user = await User.findOne({
+            _id: id,
+        });
+        if (!user) {
+            return {
+                status: 'error',
+                message: 'The user is not defined',
+            };
+        }
+
+        return {
+            status:'success',
+            data: user,
+        };
+    } catch (error) {
+        return {
+            status: 'error',
+            error: error.message,
+        };
+    }
+};
+
+
 module.exports = {
     createUser,
     loginUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    getAllUser,
+    getDetailsUser
 }
