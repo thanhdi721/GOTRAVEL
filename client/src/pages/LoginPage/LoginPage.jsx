@@ -68,7 +68,7 @@ const LoginPage = () => {
       <WrapperSection>
         <WrapperContent>
           <WrapperContentH2> Welcome!</WrapperContentH2>
-          <WrapperContentH3> To Our Nem Website </WrapperContentH3>
+          <WrapperContentH3> To An Amazing Vacation </WrapperContentH3>
 
           <WrapperIcon>
             <WrapperIconI>

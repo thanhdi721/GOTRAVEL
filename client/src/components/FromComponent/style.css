@@ -1,0 +1,8 @@
+.marginAuto {
+  margin: unset;
+}
+@media (max-width: 767px) {
+  .marginAuto {
+    margin: auto;
+  }
+}

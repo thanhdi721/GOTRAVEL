@@ -1,13 +1,16 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/logo_black.png";
-const HeaderComponents = () => {
+import logo from "../../../../assets/images/logo_black.png";
+const HeaderAdmin = () => {
   const navigate = useNavigate();
   const handleNavigateLogin = () => {
     navigate("/login");
   };
   return (
-    <header className="header navbar-area">
+    <header
+      className="header navbar-area"
+      style={{ backgroundColor: "#5ab268" }}
+    >
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-12">
@@ -128,4 +131,4 @@ const HeaderComponents = () => {
   );
 };
 
-export default HeaderComponents;
+export default HeaderAdmin;
