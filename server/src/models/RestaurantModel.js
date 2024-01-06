@@ -5,13 +5,14 @@ const restaurantSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  images: [{
+    type: String,
+  }],
   address: String,
   menu: [{
     name: String,
     price: Number,
-    // Các trường thông tin khác về menu
   }],
-  // Các trường thông tin khác về nhà hàng
 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);

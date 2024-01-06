@@ -5,13 +5,15 @@ const tourSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  info: String,
   description: String,
-  location: String,
+  images: [{
+    type: String,
+  }],
   price: {
     type: Number,
     required: true
   },
-  // Các trường thông tin khác về tour du lịch
 });
 
 const Tour = mongoose.model('Tour', tourSchema);

@@ -5,10 +5,12 @@ const hotelSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  images: [{
+    type: String,
+  }],
   address: String,
   roomTypes: [String],
   amenities: [String],
-  // Các trường thông tin khác về khách sạn
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
