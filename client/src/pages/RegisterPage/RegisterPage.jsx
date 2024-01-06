@@ -30,6 +30,7 @@ import {
 } from "@ant-design/icons";
 
 import { useNavigate } from "react-router-dom";
+import InputForm from "../../components/InputForm/InputForm";
 const LoginPage = () => {
   const navigate = useNavigate();
   const handleNavigateRegister = () => {
@@ -59,7 +60,10 @@ const LoginPage = () => {
     // Xóa interval khi component unmount
     return () => clearInterval(intervalId);
   }, []);
-
+  const [email, setEmail] = useState("");
+  const handleOnchangeEmail = (e) => {
+    console.log("e", e.target.value);
+  };
   return (
     <>
       <WrapperBackground className={backgroundStyle}></WrapperBackground>
@@ -86,20 +90,44 @@ const LoginPage = () => {
         <WrapperLogin>
           <WrapperLoginH2> Register </WrapperLoginH2>
           <WrapperLoginInput>
-            <WrapperLoginInput1 type="text" placeholder="Email" />
-            <WrapperLoginInputI></WrapperLoginInputI>
+            <InputForm
+              style={{
+                border: "1px solid gray",
+                borderRadius: "6px",
+                height: "40px",
+                padding: "10px",
+              }}
+              type="text"
+              placeholder="Email"
+              value={email}
+              handleOnchange={handleOnchangeEmail}
+            />
           </WrapperLoginInput>
           <WrapperLoginInput>
-            <WrapperLoginInput1 type="password" placeholder="Password" />
-            <WrapperLoginInputI></WrapperLoginInputI>
+            <InputForm
+              style={{
+                border: "1px solid gray",
+                borderRadius: "6px",
+                height: "40px",
+                padding: "10px",
+              }}
+              type="password"
+              placeholder="PassWord"
+            />
           </WrapperLoginInput>
-          <WrapperCheck>
-            <label>
-              <input type="checkbox" />
-              Remember me
-            </label>
-            <WrapperCheckA> Forgot Password?</WrapperCheckA>
-          </WrapperCheck>
+          <WrapperLoginInput>
+            <InputForm
+              style={{
+                border: "1px solid gray",
+                borderRadius: "6px",
+                height: "40px",
+                padding: "10px",
+              }}
+              type="password"
+              placeholder="Confirm PassWord"
+            />
+          </WrapperLoginInput>
+          <WrapperCheck></WrapperCheck>
           <WrapperButton>
             <button
               className="btn"

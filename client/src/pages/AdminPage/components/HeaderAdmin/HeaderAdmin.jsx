@@ -1,133 +1,34 @@
 import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../../../assets/images/logo_black.png";
+import "./style.css";
 const HeaderAdmin = () => {
   const navigate = useNavigate();
   const handleNavigateLogin = () => {
     navigate("/login");
   };
   return (
-    <header
-      className="header navbar-area"
-      style={{ backgroundColor: "#5ab268" }}
-    >
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-lg-12">
-            <div className="nav-inner">
-              <nav className="navbar navbar-expand-lg">
-                <Link className="navbar-brand" href="/">
-                  <img src={logo} alt="Logo" />
-                </Link>
-                <button
-                  className="navbar-toggler mobile-menu-btn"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span className="toggler-icon"></span>
-                  <span className="toggler-icon"></span>
-                  <span className="toggler-icon"></span>
-                </button>
-                <div
-                  className="collapse navbar-collapse sub-menu-bar"
-                  id="navbarSupportedContent"
-                >
-                  <ul id="nav" className="navbar-nav ms-auto">
-                    <li className="nav-item">
-                      <a
-                        href="#home"
-                        className="page-scroll active"
-                        aria-label="Toggle navigation"
-                      >
-                        Home
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#features"
-                        className="page-scroll"
-                        aria-label="Toggle navigation"
-                      >
-                        Features
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        aria-label="Toggle navigation"
-                        href="#overview"
-                        className="page-scroll"
-                      >
-                        Overview
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#pricing"
-                        className="page-scroll"
-                        aria-label="Toggle navigation"
-                      >
-                        Pricing
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#Team"
-                        className="page-scroll"
-                        aria-label="Toggle navigation"
-                      >
-                        Team
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#Blog"
-                        className="page-scroll"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#submenu-1-4"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                      >
-                        Blog
-                      </a>
-                      <ul className="sub-menu collapse" id="submenu-1-4">
-                        <li className="nav-item">
-                          <div>Blog Grid Sidebar</div>
-                        </li>
-                        <li className="nav-item">
-                          <div>Blog Single</div>
-                        </li>
-                        <li className="nav-item">
-                          <div>Blog Single Sibebar</div>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#Contact"
-                        className="page-scroll"
-                        aria-label="Toggle navigation"
-                      >
-                        Contact
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="button add-list-button">
-                  <div className="btn" onClick={handleNavigateLogin}>
-                    Tài Khoản
-                  </div>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <Navbar expand="lg" className="" style={{ background: "#5ab268" }}>
+      <Container>
+        <Navbar.Brand href="#home">
+          <img src={logo} alt="" width={100} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/admin/product">Sản Phẩm</Nav.Link>
+            <Link className="nav-link" href="/admin">
+              Người dùng
+            </Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
