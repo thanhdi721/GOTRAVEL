@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import routes from "./routes/index";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import axios from "axios";
 import "tiny-slider/dist/tiny-slider.css";
 import "glightbox/dist/css/glightbox.min.css";
 import "./assets/css/main.css";

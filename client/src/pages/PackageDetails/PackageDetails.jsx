@@ -121,155 +121,82 @@ const PackageDetails = () => {
               <div className="accordions">
                 <ul className="accordion">
                   <li>
-                    <div className="accordion-trigger">Description</div>
+                    <h5 className="" style={{ margin: "6px 0px" }}>
+                      Description
+                    </h5>
 
                     <div>
                       <span>
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Harum, placeat. Cumque, nulla impedit officiis
-                        perferendis harum, quae consequatur adipisci esse!
-                      </span>
-
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Praesentium esse eos qui optio rerum nam quae
-                        libero pariatur commodi blanditiis voluptatibus
-                        assumenda earum magni nisi numquam, ad, dolorum fugit
-                        expedita.
-                      </span>
-
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Cum quas, vel accusamus nisi, voluptatum
-                        necessitatibus facilis voluptatibus architecto!
-                        Excepturi voluptas tempora omnis aliquam doloremque
-                        culpa, ipsum nulla error tenetur assumenda.
-                      </span>
-
-                      <span>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Sed similique nam repellendus commodi eaque dolor
-                        numquam sint accusantium minus, reiciendis consequuntur
-                        itaque, qui. Qui officiis omnis nisi rem fuga adipisci,
-                        delectus, quidem ipsam ducimus tempora nihil facilis
-                        provident facere. Nemo.
+                        perferendis harum, quae consequatur adipisci esse! Lorem
+                        ipsum dolor sit amet, consectetur adipisicing elit. Cum
+                        quas, vel accusamus nisi, voluptatum necessitatibus
+                        facilis voluptatibus architecto! Excepturi voluptas
+                        tempora omnis aliquam doloremque culpa, ipsum nulla
+                        error tenetur assumenda.Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Cum quas, vel accusamus
+                        nisi, voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur assumenda.
                       </span>
                     </div>
                   </li>
 
                   <li>
-                    <div className="accordion-trigger">Info</div>
+                    <h5 className="" style={{ margin: "6px 0px" }}>
+                      Info
+                    </h5>
+
                     <div>
-                      <ul className="list-group list-group-no-border">
-                        <li className="list-group-item">
-                          <div className="row">
-                            <div className="col-md-2 col-sm-3">
-                              <span className="pjVpProductPolicyTitle">
-                                <strong>Check-in</strong>
-                              </span>
-                            </div>
-                            <div className="col-md-10 col-sm-9">
-                              <span>
-                                Donec dapibus semper sem, ac ultrices sem
-                                sagittis ut. Donec sit amet erat elit, sed
-                                pellentesque odio. In enim ligula, euismod a
-                                adipiscing in, laoreet quis turpis. Ut accumsan
-                                dignissim rutrum.
-                              </span>
-                            </div>
-                          </div>
-                        </li>
-
-                        <li className="list-group-item">
-                          <div className="row">
-                            <div className="col-md-2 col-sm-3">
-                              <span>
-                                <strong>Check-out</strong>
-                              </span>
-                            </div>
-
-                            <div className="col-md-10 col-sm-9">
-                              <span>
-                                Donec dapibus semper sem, ac ultrices sem
-                                sagittis ut. Donec sit amet erat elit, sed
-                                pellentesque odio. In enim ligula, euismod a
-                                adipiscing in, laoreet quis turpis. Ut accumsan
-                                dignissim rutrum.
-                              </span>
-                            </div>
-                          </div>
-                        </li>
-
-                        <li className="list-group-item">
-                          <div className="row">
-                            <div className="col-md-2 col-sm-3">
-                              <span>
-                                <strong>Pets</strong>
-                              </span>
-                            </div>
-                            <div className="col-md-10 col-sm-9">
-                              <span>Not allowed</span>
-                            </div>
-                          </div>
-                        </li>
-
-                        <li className="list-group-item">
-                          <div className="row">
-                            <div className="col-md-2 col-sm-3">
-                              <span>
-                                <strong>Policies</strong>
-                              </span>
-                            </div>
-                            <div className="col-md-10 col-sm-9">
-                              <div>
-                                <span>
-                                  Donec dapibus semper sem, ac ultrices sem
-                                  sagittis ut. Donec sit amet erat elit, sed
-                                  pellentesque odio. In enim ligula, euismod a
-                                  adipiscing in, laoreet quis turpis. Ut
-                                  accumsan dignissim rutrum. <br />
-                                  Donec dapibus semper sem, ac ultrices sem
-                                  sagittis ut. Donec sit amet erat elit, sed
-                                  pellentesque odio. In enim ligula, euismod a
-                                  adipiscing in, laoreet quis turpis. Ut
-                                  accumsan dignissim rutrum. <br />
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-
-                        <li className="list-group-item">
-                          <div className="row">
-                            <div className="col-md-2 col-sm-3">
-                              <span>
-                                <strong>Fees</strong>
-                              </span>
-                            </div>
-
-                            <div className="col-md-10 col-sm-9">
-                              <div>
-                                <span>
-                                  Donec dapibus semper sem, ac ultrices sem
-                                  sagittis ut. Donec sit amet erat elit, sed
-                                  pellentesque odio. In enim ligula, euismod a
-                                  adipiscing in, laoreet quis turpis. Ut
-                                  accumsan dignissim rutrum. <br />
-                                  Donec dapibus semper sem, ac ultrices sem
-                                  sagittis ut. Donec sit amet erat elit, sed
-                                  pellentesque odio. In enim ligula, euismod a
-                                  adipiscing in, laoreet quis turpis. Ut
-                                  accumsan dignissim rutrum. <br />
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </li>
-                      </ul>
+                      <span>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Harum, placeat. Cumque, nulla impedit officiis
+                        perferendis harum, quae consequatur adipisci esse! Lorem
+                        ipsum dolor sit amet, consectetur adipisicing elit. Cum
+                        quas, vel accusamus nisi, voluptatum necessitatibus
+                        facilis voluptatibus architecto! Excepturi voluptas
+                        tempora omnis aliquam doloremque culpa, ipsum nulla
+                        error tenetur assumenda.Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Cum quas, vel accusamus
+                        nisi, voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur
+                        assumenda.Lorem ipsum dolor sit amet, consectetur
+                        adipisicing elit. Cum quas, vel accusamus nisi,
+                        voluptatum necessitatibus facilis voluptatibus
+                        architecto! Excepturi voluptas tempora omnis aliquam
+                        doloremque culpa, ipsum nulla error tenetur assumenda.
+                      </span>
                     </div>
                   </li>
 
-                  <li>
+                  {/* <li>
                     <div className="accordion-trigger">
                       Enquiry &amp; Contact Details
                     </div>
@@ -406,7 +333,7 @@ const PackageDetails = () => {
                         </div>
                       </div>
                     </div>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </form>

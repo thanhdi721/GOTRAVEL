@@ -5,51 +5,47 @@ import { UserOutlined, SettingOutlined } from "@ant-design/icons";
 
 import FooterComponent from "../../components/FooterComponent/FooterComponent";
 import HeaderAdmin from "./components/HeaderAdmin/HeaderAdmin";
+import AdminUser from "../../components/AdminUser/AdminUser";
+import AdminProduct from "../../components/AdminProduct/AdminProduct";
 
-const items = [
-  getItem("Người Dùng", "sub1", <UserOutlined />, [
-    getItem("Option 1", "1"),
-    getItem("Option 2", "2"),
-    getItem("Option 3", "3"),
-    getItem("Option 4", "4"),
-  ]),
-  getItem("Quản lý Tour", "sub2", <SettingOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 7", "7"),
-      getItem("Option 8", "8"),
-    ]),
-  ]),
-];
-const rootSubmenuKeys = ["sub1", "sub2", "sub4"];
 const AdminPage = () => {
-  const [openKeys, setOpenKeys] = useState(["sub1"]);
-  const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  const items = [
+    getItem("Người Dùng", "user", <UserOutlined />),
+    getItem("Quản lý Tour", "product", <SettingOutlined />),
+  ];
+  const [keySelected, setKeySelected] = useState("");
+  const renderPage = (key) => {
+    switch (key) {
+      case "user":
+        return <AdminUser />;
+      case "product":
+        return <AdminProduct />;
+      default:
+        return <></>;
     }
   };
-  const handleClick =()=>{
-    
-  }
+  const handleClick = ({ key }) => {
+    setKeySelected(key);
+  };
+  console.log(keySelected);
   return (
     <div>
       <HeaderAdmin />
-      <Menu
-        mode="inline"
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-        style={{
-          width: 256,
-          marginTop: "100px",
-        }}
-        items={items}
-        onClick={handleClick}
-      />
+      <div style={{ display: "flex", marginTop: "100px" }}>
+        {/* <Menu
+          className="menu"
+          mode="inline"
+          style={{
+            width: 256,
+          }}
+          items={items}
+          onClick={handleClick}
+        /> */}
+        {/* <div style={{ flex: "1", padding: "15px" }}>
+          {renderPage(keySelected)}
+        </div> */}
+      </div>
+
       <FooterComponent />
     </div>
   );

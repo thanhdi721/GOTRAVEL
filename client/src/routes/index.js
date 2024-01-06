@@ -4,6 +4,8 @@ import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import PackagesPage from "../pages/PackagesPage/PackagesPage.jsx";
 import PackageDetails from "../pages/PackageDetails/PackageDetails.jsx";
 import AdminPage from "../pages/AdminPage/AdminPage.jsx";
+import AdminProduct from "../components/AdminProduct/AdminProduct.jsx";
+import AdminUser from "../components/AdminUser/AdminUser.jsx";
 export const routes = [
   {
     path: "/",
@@ -24,13 +26,17 @@ export const routes = [
     IsShowHeader: true,
   },
   {
-    path: "package-details",
+    path: "/package-details",
     page: PackageDetails,
     IsShowHeader: true,
   },
   {
-    path: "admin",
-    page: AdminPage,
+    path: "/admin",
+    page: AdminUser,
+  },
+  {
+    path: "/admin/product",
+    page: AdminProduct,
   },
 ];
 export default routes;

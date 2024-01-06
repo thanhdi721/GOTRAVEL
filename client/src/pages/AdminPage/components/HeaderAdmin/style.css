@@ -1,0 +1,8 @@
+.me-auto {
+  gap: 100px;
+}
+@media (max-width: 767px) {
+  .me-auto {
+    gap: 10px;
+  }
+}
