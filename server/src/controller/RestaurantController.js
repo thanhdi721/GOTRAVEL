@@ -1,4 +1,6 @@
+const Order = require('../models/OrderModel');
 const Restaurant = require('../models/RestaurantModel');
+
 
 const createRestaurant = async (req, res) => {
   try {
@@ -126,10 +128,60 @@ const getAllRestaurants = async (req, res) => {
   }
 };
 
+const orderFood = async (req, res) => {
+  try {
+    const { restaurantId, foodName } = req.body; // ID của nhà hàng và tên món ăn cần đặt
+  
+    // Tìm thông tin nhà hàng dựa trên ID
+    const restaurant = await Restaurant.findById(restaurantId);
+  
+    if (!restaurant) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Restaurant not found'
+      });
+    }
+  
+    // Kiểm tra xem món ăn có tồn tại trong menu không
+    const food = restaurant.menu.find(item => item.name === foodName);
+  
+    if (!food) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Food not available in the menu'
+      });
+    }
+  
+    // Tạo một đối tượng Order mới
+    const order = new Order({
+      restaurantId: restaurant._id,
+      foodName: foodName,
+      price: food.price
+    });
+  
+    // Lưu đơn đặt hàng vào cơ sở dữ liệu
+    await order.save();
+  
+    res.status(200).json({
+      status: 'success',
+      data: {
+        message: 'Food ordered successfully'
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
+
 module.exports = {
     createRestaurant,
     updateRestaurant,
     deleteRestaurant,
     getRestaurant,
-    getAllRestaurants
+    getAllRestaurants,
+    orderFood
 }
