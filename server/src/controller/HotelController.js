@@ -82,10 +82,55 @@ const updateHotel = async (req, res) => {
   }
 };
 
-  
+const getHotel = async (req, res) => {
+  try {
+    const hotelId = req.params.id;
+
+    const hotel = await Hotel.findById(hotelId);
+
+    if (!hotel) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Hotel not found'
+      });
+    }
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        hotel: hotel
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
+const getAllHotels = async (req, res) => {
+  try {
+    const hotels = await Hotel.find();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        hotels: hotels
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
 
 module.exports = {
     createHotel,
     updateHotel,
     deleteHotel,
+    getHotel,
+    getAllHotels
 }

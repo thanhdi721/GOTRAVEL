@@ -8,6 +8,8 @@ const {authMiddleware, authUserMiddleware} = require('../middleware/auth')
 router.post('/create-tours', authMiddleware, restaurantController.createRestaurant);
 router.put('/update-tours/:id',authMiddleware, restaurantController.updateRestaurant); 
 router.delete('/delete-tours/:id',authMiddleware, restaurantController.deleteRestaurant);
+router.get('/get-restaurants/:id', restaurantController.getRestaurant);
+router.get('/get-all-restaurants', restaurantController.getAllRestaurants);
 
 
 module.exports = router;

@@ -81,9 +81,55 @@ const updateRestaurant = async (req, res) => {
   }
 };
 
+const getRestaurant = async (req, res) => {
+  try {
+    const restaurantId = req.params.id;
+
+    const restaurant = await Restaurant.findById(restaurantId);
+
+    if (!restaurant) {
+      return res.status(404).json({
+        status: 'error',
+        message: 'Restaurant not found'
+      });
+    }
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        restaurant: restaurant
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
+
+const getAllRestaurants = async (req, res) => {
+  try {
+    const restaurants = await Restaurant.find();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        restaurants: restaurants
+      }
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: 'error',
+      message: err.message
+    });
+  }
+};
 
 module.exports = {
     createRestaurant,
     updateRestaurant,
     deleteRestaurant,
+    getRestaurant,
+    getAllRestaurants
 }
