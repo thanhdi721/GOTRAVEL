@@ -1,22 +1,26 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
-  user: {
+  userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: 'User', // Tham chiếu tới mô hình User
     required: true
   },
-  content: {
+  entityId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true
+  },
+  entityType: {
     type: String,
     required: true
   },
   rating: {
     type: Number,
-    min: 1,
-    max: 5
+    required: true
   },
-  // Các trường thông tin khác về đánh giá
-});
+  comment: String,
+  
+}, { timestamps: true });
 
 const Review = mongoose.model('Review', reviewSchema);
 
