@@ -23,6 +23,16 @@ const userSchema = new mongoose.Schema(
       default: false,
       required: true,
     },
+    bookedTours: [{
+      tourId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Tour'
+      },
+      userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+    }],
     access_token: {
       type: String,
       require: true,

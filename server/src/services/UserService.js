@@ -41,7 +41,7 @@ const loginUser = (userLogin) => {
 
     try {
       const checkUser = await User.findOne({ email: email });
-      if (checkUser === null) {
+      if (!checkUser) {
         resolve({
           status: "OK",
           message: "The user is not defined",
