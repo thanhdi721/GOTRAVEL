@@ -6,9 +6,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 const db = require("./config/db");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
 db.connect();
 
 routes(app);

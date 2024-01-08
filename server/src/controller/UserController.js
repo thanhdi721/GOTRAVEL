@@ -49,7 +49,14 @@ const loginUser = async (req, res) => {
       });
     }
     const responsve = await UserService.loginUser(req.body);
-    return res.status(200).json(responsve);
+    // console.log("responsve", responsve);
+    const { refresh_token, ...newReponsve } = responsve;
+    res.cookie("refresh_token", refresh_token, {
+      httpOnly: true,
+      secure: false,
+      samesite: "strict",
+    });
+    return res.status(200).json(newReponsve);
   } catch (e) {
     return res.status(404).json({
       message: e,
@@ -125,9 +132,9 @@ const getDetailsUser = async (req, res) => {
 };
 
 const refreshToken = async (req, res) => {
-  // console.log("req.cookies.refresh_token", req.cookies.refresh_token);
+  console.log("req.cookies", req.cookies);
   try {
-    const token = req.headers.token.split(" ")[1];
+    const token = req.cookies.refresh_token;
     if (!token) {
       return res.status(401).json({
         status: "error",
@@ -136,6 +143,7 @@ const refreshToken = async (req, res) => {
     }
     const response = await JwtService.refreshTokenService(token);
     return res.status(200).json(response);
+    return;
   } catch (e) {
     return res.status(404).json({
       message: e,
