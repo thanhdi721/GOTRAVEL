@@ -3,7 +3,7 @@ import LoginPage from "../pages/LoginPage/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage/RegisterPage.jsx";
 import PackagesPage from "../pages/PackagesPage/PackagesPage.jsx";
 import PackageDetails from "../pages/PackageDetails/PackageDetails.jsx";
-import AdminPage from "../pages/AdminPage/AdminPage.jsx";
+
 import AdminProduct from "../components/AdminProduct/AdminProduct.jsx";
 import AdminUser from "../components/AdminUser/AdminUser.jsx";
 export const routes = [
