@@ -77,13 +77,20 @@ const LoginPage = () => {
   };
 
   const handleLogin = () => {
-    mutation.mutate({ email, password });
-    if (data?.status === "OK") {
-      handleNavigateHome();
-      toast.success("Đăng Nhập Thành Công");
-    } else {
-      toast.error("Đăng Nhập Thất Bại");
-    }
+    mutation.mutate(
+      { email, password },
+      {
+        onSuccess: (data) => {
+          if (data?.status === "OK") {
+            handleNavigateHome();
+            toast.success("Đăng Nhập Thành Công");
+            // localStorage.setItem("access_token", data?.access_token);
+          } else {
+            toast.error("Đăng Nhập Thất Bại");
+          }
+        },
+      }
+    );
   };
   return (
     <>
