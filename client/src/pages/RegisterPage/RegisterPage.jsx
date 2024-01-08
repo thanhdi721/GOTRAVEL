@@ -88,8 +88,20 @@ const LoginPage = () => {
     setConfirmPassword(value);
   };
   const handleRegister = async () => {
-    await mutation.mutate({ email, password, confirmPassword });
-    handleMessage();
+    mutation.mutate(
+      { email, password, confirmPassword },
+      {
+        onSuccess: (data) => {
+          if (data?.status === "OK") {
+            handleNavigateRegister();
+            toast.success("Đăng Kí Thành Công");
+            // localStorage.setItem("access_token", data?.access_token);
+          } else {
+            toast.error("Đăng Kí Thất Bại");
+          }
+        },
+      }
+    );
   };
 
   return (
