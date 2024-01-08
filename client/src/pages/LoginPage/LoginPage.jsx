@@ -30,7 +30,9 @@ import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
 import * as UserService from "../../services/UserServices";
 import { useMutationHooks } from "../../hook/useMutationHook";
 import { toast } from "react-toastify";
-
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../redux/slides/userSlide";
+import jwt_decode from "jwt-decode";
 const LoginPage = () => {
   const [backgroundStyle, setBackgroundStyle] = useState("background1");
 
@@ -55,7 +57,7 @@ const LoginPage = () => {
     // Xóa interval khi component unmount
     return () => clearInterval(intervalId);
   }, []);
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleNavigateLogin = () => {
     navigate("/register");
@@ -64,7 +66,7 @@ const LoginPage = () => {
     navigate("/");
   };
   const mutation = useMutationHooks((data) => UserService.loginUser(data));
-  const { data, isLoading, isError, isSuccess } = mutation;
+  const { data } = mutation;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -84,13 +86,26 @@ const LoginPage = () => {
           if (data?.status === "OK") {
             handleNavigateHome();
             toast.success("Đăng Nhập Thành Công");
-            // localStorage.setItem("access_token", data?.access_token);
+            localStorage.setItem(
+              "access_token",
+              JSON.stringify(data?.access_token)
+            );
+            if (data?.access_token) {
+              const decoded = jwt_decode(data?.access_token);
+              if (decoded?.id) {
+                handleGetDetailUser(decoded?.id, data?.access_token);
+              }
+            }
           } else {
             toast.error("Đăng Nhập Thất Bại");
           }
         },
       }
     );
+  };
+  const handleGetDetailUser = async (id, token) => {
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token }));
   };
   return (
     <>

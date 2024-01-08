@@ -3,11 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo_black.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import { useSelector } from "react-redux";
 const HeaderComponents = () => {
   const navigate = useNavigate();
   const handleNavigateLogin = () => {
     navigate("/login");
   };
+  const user = useSelector((state) => state.user);
   return (
     <header className="header navbar-area">
       <div className="container">
@@ -116,11 +118,19 @@ const HeaderComponents = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="button add-list-button">
-                  <div className="btn" onClick={handleNavigateLogin}>
-                    Tài Khoản
+                {user?.name ? (
+                  <div className="button add-list-button">
+                    <div className="btn" onClick={handleNavigateLogin}>
+                      {user.name}
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="button add-list-button">
+                    <div className="btn" onClick={handleNavigateLogin}>
+                      Tài Khoản
+                    </div>
+                  </div>
+                )}
               </nav>
             </div>
           </div>
