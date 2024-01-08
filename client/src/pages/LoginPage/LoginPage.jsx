@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
 import {
   WrapperBackground,
-  WrapperButton,
   WrapperCheck,
   WrapperCheckA,
   WrapperContent,
   WrapperContentH2,
   WrapperContentH3,
-  WrapperContentPre,
   WrapperIcon,
   WrapperIconI,
   WrapperLogin,
   WrapperLoginH2,
   WrapperLoginInput,
-  WrapperLoginInput1,
-  WrapperLoginInputI,
   WrapperSection,
   WrapperSignUp,
   WrapperSignUpA,
@@ -28,8 +24,13 @@ import {
 } from "@ant-design/icons";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-
 import "./app.css";
+import InputForm from "../../components/InputForm/InputForm";
+import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
+import * as UserService from "../../services/UserServices";
+import { useMutationHooks } from "../../hook/useMutationHook";
+import { toast } from "react-toastify";
+
 const LoginPage = () => {
   const [backgroundStyle, setBackgroundStyle] = useState("background1");
 
@@ -62,6 +63,28 @@ const LoginPage = () => {
   const handleNavigateHome = () => {
     navigate("/");
   };
+  const mutation = useMutationHooks((data) => UserService.loginUser(data));
+  const { data, isLoading, isError, isSuccess } = mutation;
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleOnchangeEmail = (value) => {
+    setEmail(value);
+  };
+  const handleOnchangePassword = (value) => {
+    setPassword(value);
+  };
+
+  const handleLogin = () => {
+    mutation.mutate({ email, password });
+    if (data?.status === "OK") {
+      handleNavigateHome();
+      toast.success("Đăng Nhập Thành Công");
+    } else {
+      toast.error("Đăng Nhập Thất Bại");
+    }
+  };
   return (
     <>
       <WrapperBackground className={backgroundStyle}></WrapperBackground>
@@ -88,13 +111,36 @@ const LoginPage = () => {
         <WrapperLogin>
           <WrapperLoginH2> Login </WrapperLoginH2>
           <WrapperLoginInput>
-            <WrapperLoginInput1 type="text" placeholder="Email" />
-            <WrapperLoginInputI></WrapperLoginInputI>
+            <InputForm
+              style={{
+                border: "1px solid gray",
+                borderRadius: "6px",
+                height: "40px",
+                padding: "10px",
+              }}
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={handleOnchangeEmail}
+            />
           </WrapperLoginInput>
           <WrapperLoginInput>
-            <WrapperLoginInput1 type="password" placeholder="Password" />
-            <WrapperLoginInputI></WrapperLoginInputI>
+            <InputForm
+              style={{
+                border: "1px solid gray",
+                borderRadius: "6px",
+                height: "40px",
+                padding: "10px",
+              }}
+              type="password"
+              placeholder="PassWord"
+              value={password}
+              onChange={handleOnchangePassword}
+            />
           </WrapperLoginInput>
+          {data?.status === "ERR" && (
+            <span style={{ color: "red" }}>{data?.message}</span>
+          )}
           <WrapperCheck>
             <label>
               <input type="checkbox" />
@@ -102,15 +148,22 @@ const LoginPage = () => {
             </label>
             <WrapperCheckA> Forgot Password?</WrapperCheckA>
           </WrapperCheck>
-          <WrapperButton>
-            <button
-              className="btn"
-              style={{ border: "1px solid gray", color: "#000" }}
-              onClick={handleNavigateHome}
-            >
-              Login
-            </button>
-          </WrapperButton>
+
+          <ButtonComponent
+            disabled={!email.length || !password.length}
+            className="btn"
+            styleButton={{
+              background: "red",
+              border: "1px solid gray",
+              color: "#000",
+              width: "100px",
+              height: "40px",
+              marginBottom: "15px",
+            }}
+            onClick={handleLogin}
+            textbutton={"Login"}
+          ></ButtonComponent>
+
           <WrapperSignUp>
             <WrapperSignUpP> Don't have an account?</WrapperSignUpP>
             <WrapperSignUpA

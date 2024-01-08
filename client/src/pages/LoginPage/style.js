@@ -97,12 +97,7 @@ export const WrapperLoginH2 = styled.h2`
 export const WrapperLoginInput = styled.div`
   position: relative;
   width: 100%;
-  height: 30px;
   margin-bottom: 40px;
-  border: 1px solid gray;
-  padding: 10px;
-  height: 40px;
-  border-radius: 6px;
 `;
 export const WrapperLoginInput1 = styled.input`
   font-size: 16px;

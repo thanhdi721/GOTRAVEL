@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {
   WrapperBackground,
-  WrapperButton,
   WrapperCheck,
-  WrapperCheckA,
   WrapperContent,
   WrapperContentH2,
   WrapperContentH3,
@@ -12,8 +10,6 @@ import {
   WrapperLogin,
   WrapperLoginH2,
   WrapperLoginInput,
-  WrapperLoginInput1,
-  WrapperLoginInputI,
   WrapperSection,
   WrapperSignUp,
   WrapperSignUpA,
@@ -31,6 +27,11 @@ import {
 
 import { useNavigate } from "react-router-dom";
 import InputForm from "../../components/InputForm/InputForm";
+import ButtonComponent from "../../components/ButtonComponent/ButtonComponent";
+import * as UserService from "../../services/UserServices";
+import { useMutationHooks } from "../../hook/useMutationHook";
+import * as message from "../../components/Messager/Messager";
+import { toast } from "react-toastify";
 const LoginPage = () => {
   const navigate = useNavigate();
   const handleNavigateRegister = () => {
@@ -60,10 +61,37 @@ const LoginPage = () => {
     // Xóa interval khi component unmount
     return () => clearInterval(intervalId);
   }, []);
-  const [email, setEmail] = useState("");
-  const handleOnchangeEmail = (e) => {
-    console.log("e", e.target.value);
+
+  const mutation = useMutationHooks((data) => UserService.registerUser(data));
+  const { data, isLoading, isError, isSuccess } = mutation;
+  const handleMessage = () => {
+    if (data?.message !== "SUCCESS") {
+      toast.error("Đăng Kí Thất Bại");
+    } else if (data?.status === "ERR") {
+      toast.error("Đăng Kí Thất Bại");
+    } else {
+      toast.success("Đăng Kí Thành Công");
+      handleNavigateRegister();
+      localStorage.setItem("access_token", data?.access_token);
+    }
   };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const handleOnchangeEmail = (value) => {
+    setEmail(value);
+  };
+  const handleOnchangePassword = (value) => {
+    setPassword(value);
+  };
+  const handleOnchangeConfirmPassword = (value) => {
+    setConfirmPassword(value);
+  };
+  const handleRegister = async () => {
+    await mutation.mutate({ email, password, confirmPassword });
+    handleMessage();
+  };
+
   return (
     <>
       <WrapperBackground className={backgroundStyle}></WrapperBackground>
@@ -100,7 +128,7 @@ const LoginPage = () => {
               type="text"
               placeholder="Email"
               value={email}
-              handleOnchange={handleOnchangeEmail}
+              onChange={handleOnchangeEmail}
             />
           </WrapperLoginInput>
           <WrapperLoginInput>
@@ -113,6 +141,8 @@ const LoginPage = () => {
               }}
               type="password"
               placeholder="PassWord"
+              value={password}
+              onChange={handleOnchangePassword}
             />
           </WrapperLoginInput>
           <WrapperLoginInput>
@@ -125,17 +155,30 @@ const LoginPage = () => {
               }}
               type="password"
               placeholder="Confirm PassWord"
+              value={confirmPassword}
+              onChange={handleOnchangeConfirmPassword}
             />
           </WrapperLoginInput>
+          {data?.status === "ERR" && (
+            <span style={{ color: "red" }}>{data?.message}</span>
+          )}
           <WrapperCheck></WrapperCheck>
-          <WrapperButton>
-            <button
-              className="btn"
-              style={{ border: "1px solid gray", color: "#000" }}
-            >
-              Register
-            </button>
-          </WrapperButton>
+          <ButtonComponent
+            disabled={
+              !email.length || !password.length || !confirmPassword.length
+            }
+            onClick={handleRegister}
+            className="btn"
+            styleButton={{
+              background: "red",
+              border: "1px solid gray",
+              color: "#000",
+              width: "100px",
+              height: "40px",
+              marginBottom: "15px",
+            }}
+            textbutton={"Register"}
+          ></ButtonComponent>
           <WrapperSignUp>
             <WrapperSignUpP>Do you already have an account?</WrapperSignUpP>
             <WrapperSignUpA
