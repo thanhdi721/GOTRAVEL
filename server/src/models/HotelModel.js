@@ -9,8 +9,11 @@ const hotelSchema = new mongoose.Schema({
     type: String,
   }],
   address: String,
-  roomTypes: [String],
-  amenities: [String],
+  info: String,
+  roomCount: {
+    type: Number,
+    default: 0
+  }
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);

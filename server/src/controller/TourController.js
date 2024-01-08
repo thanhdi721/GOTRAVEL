@@ -129,7 +129,7 @@ const deleteTour = async (req, res) => {
 
   const bookTour = async (req, res) => {
     try {
-      const { tourId, userId, numberOfTickets } = req.body;
+      const { tourId, userId } = req.body;
   
       // Tìm tour cần đặt
       const tourToBook = await Tour.findById(tourId);
@@ -152,16 +152,14 @@ const deleteTour = async (req, res) => {
       }
   
       // Thực hiện việc đặt tour
-      // Ví dụ: cập nhật thông tin đặt tour và thông tin người dùng
       const bookingInfo = {
         tourId: tourToBook._id,
         userId: user._id,
-        numberOfTickets: numberOfTickets
         // Thông tin khác có thể cần thiết
       };
   
       // Lưu thông tin đặt tour vào cơ sở dữ liệu
-      // Ví dụ: user.bookedTours.push(bookingInfo);
+      user.bookedTours.push(bookingInfo);
   
       // Lưu các thay đổi vào cơ sở dữ liệu
       await user.save();
@@ -180,6 +178,7 @@ const deleteTour = async (req, res) => {
       });
     }
   };
+  
 
 module.exports = {
     createTour,
