@@ -10,7 +10,6 @@ export const routes = [
   {
     path: "/",
     page: HomePage,
-    IsShowHeader: true,
   },
   {
     path: "/login",

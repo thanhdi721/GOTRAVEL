@@ -8,11 +8,15 @@ import "./assets/css/main.css";
 import "./assets/css/animate.css";
 import DefaultComponents from "./components/DefaultComponent/DefaultComponent";
 import { isJsonString } from "./utils/utils";
-import * as UserService from "./services/UserServices";
+import {
+  axiosJWT,
+  getDetailsUser,
+  refreshToken,
+} from "./services/UserServices.js";
 import { useDispatch } from "react-redux";
 import { updateUser } from "./redux/slides/userSlide";
 import jwt_decode from "jwt-decode";
-
+const axios = require("axios");
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -33,18 +37,29 @@ function App() {
     return { decoded, storageData };
   };
   const handleGetDetailUser = async (id, token) => {
-    const res = await UserService.getDetailsUser(id, token);
+    const res = await getDetailsUser(id, token);
     dispatch(updateUser({ ...res?.data, access_token: token }));
   };
-  UserService.axiosJWT.interceptors.request.use(
+  axiosJWT.interceptors.request.use(
     async (config) => {
       // Do something before request is sent
       const currentTime = new Date();
       const { decoded } = handleDecoded();
       if (decoded?.exp < currentTime.getTime() / 1000) {
-        const data = await UserService.refreshToken();
-        config.headers["token"] = `Bearer ${data?.access_token}`;
+        try {
+          const data = await refreshToken();
+          config.headers["token"] = `Bearer ${data?.access_token}`;
+          // Lưu token mới vào localStorage để sử dụng sau này
+          localStorage.setItem(
+            "access_token",
+            JSON.stringify(data.access_token)
+          );
+        } catch (error) {
+          console.error("Error refreshing token:", error);
+          throw error;
+        }
       }
+
       return config;
     },
     function (error) {

@@ -63,7 +63,7 @@ const LoginPage = () => {
     navigate("/register");
   };
   const handleNavigateHome = () => {
-    navigate("/");
+    navigate("/packages-page");
   };
   const mutation = useMutationHooks((data) => UserService.loginUser(data));
   const { data } = mutation;
