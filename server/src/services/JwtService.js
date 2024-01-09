@@ -51,8 +51,16 @@ const refreshTokenService = (token) => {
       }
     });
   };
+
+let refreshTokens = []; // Mảng lưu trữ các token refresh
+
+const invalidateRefreshToken = async (tokenToInvalidate) => {
+  refreshTokens = refreshTokens.filter(token => token !== tokenToInvalidate);
+}
+
 module.exports = {
     genneralAccessToken,
     genneralRefreshToken,
-    refreshTokenService
+    refreshTokenService,
+    invalidateRefreshToken
 }

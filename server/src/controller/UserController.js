@@ -151,6 +151,33 @@ const refreshToken = async (req, res) => {
   }
 };
 
+const logout = async (req, res) => {
+  try {
+    const token = req.cookies.refresh_token; // Lấy token từ cookie
+    if (!token) {
+      return res.status(401).json({
+        status: "error",
+        message: "Token not found",
+      });
+    }
+    
+    // Hủy token refresh bằng cách gọi service hoặc xóa khỏi lưu trữ
+    await JwtService.invalidateRefreshToken(token);
+
+    // Xóa cookie khỏi client
+    res.clearCookie("refresh_token");
+
+    return res.status(200).json({
+      status: "success",
+      message: "Logged out successfully",
+    });
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+    });
+  }
+};
+
 module.exports = {
   createUser,
   loginUser,
@@ -159,4 +186,5 @@ module.exports = {
   getAllUser,
   getDetailsUser,
   refreshToken,
+  logout
 };
